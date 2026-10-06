@@ -1,0 +1,23 @@
+# 后端核心依赖（Python 3.10+）
+# Web 框架
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+pydantic>=2.6
+
+# 说明：大模型调用（DeepSeek/豆包/通义/OpenAI 兼容协议）与 .env 解析均为
+#       标准库实现（urllib），无需 openai / python-dotenv / httpx。
+
+# Agent 编排 + RAG（可选，缺失时自动降级为顺序编排 / 自研分块）
+langgraph>=0.0.53
+langchain>=0.1
+
+# 向量数据库（可选，缺失时自动降级为本地 JSON 向量库）
+chromadb>=0.4.24
+
+# 文档解析
+PyPDF2>=3.0
+python-docx>=1.1
+
+# 课件导出 PPT（可选，缺失时导出功能会提示安装）
+python-pptx>=0.6.21

@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-slate-50 text-slate-800;
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-slate-200 bg-white shadow-card;
+  }
+  .page-title {
+    @apply text-xl font-bold text-slate-900;
+  }
+  .muted {
+    @apply text-sm text-slate-500;
+  }
+}
+
+/* 轻量化滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 淡入动画 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Toast 过渡 */
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.25s ease;
+}
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+/* Markdown 渲染样式（素材 / 报告） */
+.md-body {
+  @apply text-sm leading-relaxed text-slate-700;
+}
+.md-body h1 {
+  @apply mt-4 mb-2 text-xl font-bold text-slate-900;
+}
+.md-body h2 {
+  @apply mt-4 mb-2 border-b border-slate-100 pb-1 text-lg font-bold text-slate-900;
+}
+.md-body h3 {
+  @apply mt-3 mb-1 text-base font-semibold text-slate-800;
+}
+.md-body p {
+  @apply my-2;
+}
+.md-body ul {
+  @apply my-2 list-disc pl-5;
+}
+.md-body ol {
+  @apply my-2 list-decimal pl-5;
+}
+.md-body li {
+  @apply my-1;
+}
+.md-body table {
+  @apply my-3 w-full border-collapse text-sm;
+}
+.md-body th,
+.md-body td {
+  @apply border border-slate-200 px-3 py-2 text-left align-top;
+}
+.md-body th {
+  @apply bg-slate-50 font-medium text-slate-700;
+}
+.md-body strong {
+  @apply font-semibold text-slate-900;
+}
+.md-body code {
+  @apply rounded bg-slate-100 px-1.5 py-0.5 text-xs;
+}
+.md-body blockquote {
+  @apply my-2 border-l-4 border-primary-200 pl-3 italic text-slate-500;
+}
+.md-body hr {
+  @apply my-4 border-slate-100;
+}
+
+/* ============ 动画与交互 ============ */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-fade-up {
+  animation: fade-up 0.5s ease both;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+/* 卡片悬浮提升 */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.1);
+}
+
+/* 页面切换过渡 */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}

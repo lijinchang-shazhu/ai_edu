@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# 环境配置（含 API 密钥，绝不推送）
+.env
+
+# 运行时数据（数据库、向量库、上传文件）
+data/
+
+# 第三方下载的 skill 仓库（非本项目代码，含版权，不入库）
+fangcun/
+~/
+
+# Claude Code 本地状态
+.claude/
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
